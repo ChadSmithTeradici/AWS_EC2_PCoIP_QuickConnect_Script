@@ -1,16 +1,14 @@
 ---
-title: Domain Join with AWS secrets service
-description: When configuring windows EC2 instances, this script allows a EC2 instance to join a domain and keep the credentials safe in AWS secrets service.
+title: Quick connect to instances in AWS with a PCoIP session
+description: Script that powers-up Instances, identified external IPs and establishes a PCoIP connection in a single step.
 author: chad-m-smith
 tags: AWS, Active Directory, EC2
-date_published: 2021-10-22
+date_published: 2021-11-05
 ---
 
 Chad Smith | Technical Alliance Architect at Teradici | HP
 
 <p style="background-color:#CAFACA;"><i>Contributed by Teradici employees.</i></p>
-
-Credit to http://beta.awsdocs.com/ for baseline documents, this guide alters scripts, add additonal secrects and tightens access to secrects. 
 
 This script is designed to run on a freshly deployed Windows EC2 instance. Its function is to make a request to the AWS Secrets Manager to get the proper Active Directory Service Account credentials of a user that has delegated control to perform domain join operations. This negates the necessity of having hard coded username and password values sitting in the unattend.xml or the accompanying windows domain join powerShell script saved within the base AMI. 
 
