@@ -15,11 +15,12 @@ This script is designed to run on a freshly deployed Windows EC2 instance. Its f
 
 ## Objectives
 
-+ Create key/value pair in AWS Secrets
-+ Create an IAM role/policy to lock down access to Secrets
-+ Allocate a AWS EC2 instance from AWS Console.
-+ Drop in deployment script in User Defined area
-+ Start EC2 instance, verify domain join.
++ Create EC2 instances in AWS
++ Create an IAM role/policy to lock down access to instances
++ Apply Policy to user and programmatic access to resources 
++ Download and configure AWS CLI
++ Create script and set permission on client.
+
 
 ## Costs
 
@@ -42,94 +43,14 @@ In this section, you set up some basic resources that the tutorial depends on.
 
 ## Creation of AWS Secrets
 
-In this section, you create and configure a series of Secrets key/value pairs for authentication functions in scripts.
 
-1. Access [AWS Secrets manager](https://us-west-2.console.aws.amazon.com/secretsmanager/home?region=us-west-2#!/home) is region specfic, so enter the region you want to deploy EC2 instances. In this example we will be using *us-west-2*.
-
-1. Select the **Store new secret** button in the upper-right hand corner of the page.
-
-1. In the **New secrets creation** page, select:
-    + In secret type: Select **Other type of secrets**.
-    + In the Secrets key/value field create 2 key/vaule pairs: key named **ServiceAccount** with a AD user/service account that can add machines to AD.  Also a named **Password** and its assoicated the AD password created for the user/service created in AD.
-    + Keep the Select the encryption key the default **DefaultEncryptionKey**
-    
-    ![image](https://github.com/ChadSmithTeradici/DomainJoin-with-AWS-Secrets-for-Windows-EC2-instances/blob/main/images/Create_New_Secret.jpg)
- 
- 1. In the **Store a new secret** page, select
-    + In the Secret name field: Type **Windows/Service/DomainJoin**
-    + (optionally) enter a description
-    + (optionally) enter a Tag
-    + Skip the Resource Permissions (optional) section for now, we will use IAM service role and policy instead. 
-    + Select **Next** to continue
-
-    ![image](https://github.com/ChadSmithTeradici/DomainJoin-with-AWS-Secrets-for-Windows-EC2-instances/blob/main/images/Secret_name.jpg)
-    
- 1. In the **Store a New Secret** page, take the default options then **Next** to continue.
-
-    ![image](https://github.com/ChadSmithTeradici/DomainJoin-with-AWS-Secrets-for-Windows-EC2-instances/blob/main/images/StoreNewSecret.jpg)
-    
- 1. Confirm the setting for the new Secrets page, then **Store** to finish the creation of secrets.
-
-    ![image](https://github.com/ChadSmithTeradici/DomainJoin-with-AWS-Secrets-for-Windows-EC2-instances/blob/main/images/ConfirmSecrets.jpg)
-    
- 1. Once the Secret has been successfully been created, you need to find its assoicated ARN. **Select** the newly created secret and **double-click** Secret Name.
-
-    ![image](https://github.com/ChadSmithTeradici/DomainJoin-with-AWS-Secrets-for-Windows-EC2-instances/blob/main/images/List_Secrets.jpg)    
- 
-1. Once, In the **Secret Details** page, locate the ARN section and **copy** the associated ARN to later use in the IAM policy creation. 
-
-    ![image](https://github.com/ChadSmithTeradici/DomainJoin-with-AWS-Secrets-for-Windows-EC2-instances/blob/main/images/Locate_ARN.jpg)
-     
 ## Assign a IAM Policy for secrets
 
-Create an IAM role for EC2 instance to read the secrets through the installation script to join the domain.
 
-1. Go to IAM -> Policy -> Create Policy. 
-    
-1. Select the **Create Policy** button
-
-    ![image](https://github.com/ChadSmithTeradici/DomainJoin-with-AWS-Secrets-for-Windows-EC2-instances/blob/main/images/Create_Policy_Button.jpg)
-    
-Select the **JSON** tab, it will open in separate web browser tab. Click on tab JSON and paste the following text. Also add in the **ARN** for the **Secrets** captured in the previous step when creating the secret.
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": [
-                "secretsmanager:GetSecretValue"
-            ],
-            "Resource": "arn:aws:secretsmanager:us-west-2:455311239824:secret:Windows/ServiceAccounts/DomainJoin-8KUbyW",
-            "Effect": "Allow"
-        }    
-    ]
-}
-```
-1. Select Option tag then **Next** to continue
-
-1. Review the setting to the IAM role, **Name** the Policy then select the **Create Policy** button to finish creating the role.
 
 ## Creation of a IAM Role to access policy
 
-Within the IAM Management Console, select the **Create role** option. 
 
-1. In the IAM Role section select **Create** Role button.
-
-1. In the Role creation section, you will select the **AWS Service** and **EC2** under common use case.
-
-    ![image](https://github.com/ChadSmithTeradici/DomainJoin-with-AWS-Secrets-for-Windows-EC2-instances/blob/main/images/Create_role.jpg)
-
-1. Search for the already created Policy name, that was set in the previous step. *(Example: ec2_domain_join_script)*
-
-    ![image](https://github.com/ChadSmithTeradici/DomainJoin-with-AWS-Secrets-for-Windows-EC2-instances/blob/main/images/Select_existing_role.jpg)
-    
-1. Next add optional Tags, Select **Next** to continue.
-
-1. Finally, provide a name to the Role, review the Role and ensure the previous policy is assigned. 
-
-   ![image](https://github.com/ChadSmithTeradici/DomainJoin-with-AWS-Secrets-for-Windows-EC2-instances/blob/main/images/Finish_role.jpg) 
-  
 
 ## Procure a EC2 Instance, assign role and use User Defined Script
 
