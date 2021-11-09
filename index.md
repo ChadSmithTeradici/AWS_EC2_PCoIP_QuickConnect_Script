@@ -104,10 +104,15 @@ Within the IAM Management Console, select the Create **user** option.
     
 1. In the Set Permission section, you can decided on what security and access methodology your organization needs. Are you going to grant EC2 access on a per user basis,then **Attach existing policy directly** option is the best. If you are going to provide access to instances to a group of users, then **Add user to group** is advised. For this guide we will assoicating these instances directly a individual user.
 
+    ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/Set_permissions.jpg)
+    
+1. Next add optional **Tags**, Select **Next** to continue.
+
+1. Finally, review the settings for the user and ensure finish by selecting the **Create User**.
+
+1. The next window will show the credentials for programmatic access (Access and Security keys) that will be required later when configuring AWS CLI access. Copy or download the access key and secuity in a secure location for future reference. You only have one time to gain access to the security key, without having to generate a new pair.
+
     ![image](
-
-
-## Ensuring end-users have programmatic access to instances
 
 ## Creation of power-on script per OS
 
