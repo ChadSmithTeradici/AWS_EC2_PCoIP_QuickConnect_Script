@@ -112,7 +112,7 @@ Within the IAM Management Console, select the Create **user** option.
 
 1. The next window will show the credentials for programmatic access (Access and Security keys) that will be required later when configuring AWS CLI access. Copy or download the access key and secuity in a secure location for future reference. You only have one time to gain access to the security key, without having to generate a new pair.
 
-    ![image](
+    ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/Programmatic_access.jpg)
 
 ## Creation of power-on script per OS
 
