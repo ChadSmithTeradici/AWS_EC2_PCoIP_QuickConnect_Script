@@ -115,10 +115,54 @@ Within the IAM Management Console, select the Create **user** option.
     ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/Programmatic_access.jpg)
 
 ## Installation of AWS CLI on client
+1. Installation of AWS CLI client
+1. Configure AWS CLI with provisioned Access key and Secret Key
+1. Verify AWS configuration
 
 ## Creation of power-on script per OS
 
+djsfjafd
+
+```
+$cmd = 'powershell.exe'
+$defaultInstanceID = 'i-00000000000001'
+$defaultRegion = 'us-west-2'
+$region = Read-Host "Press enter to accept the default region: [$($defaultRegion)]"
+$region = ($defaultRegion,$region)[[bool]$region]
+aws configure set default.region $region
+$prompt = Read-Host "Press enter to accept the default Instance id: [$($defaultInstanceID)]"
+$prompt = ($defaultInstanceID,$prompt)[[bool]$prompt]
+aws ec2 start-instances --instance-ids $prompt
+Write-Output "Timeout is for 20 seconds for Instance to start in AWS"
+timeout /T 20
+Write-Output "Will poll EC2 instance for External IP address"
+sleep -s 1.5
+$ExtIP=aws ec2 describe-instances --instance-ids $prompt --query 'Reservations[*].Instances[*].PublicIpAddress' --output text
+Write-Output ("Found External IP Address of " + $ExtIP + " will try a establish a PCoIP connection..")
+sleep -s 1.5
+$Launch = "pcoip://$ExtIp"
+Start-Process $Launch
+```
+jhjkhkhkhkj
+
+```
+#!/bin/bash
+read -p "Press enter to accept the default Instance id or enter new [i-0000000000000001]: " name
+name=${name:-i-0000000000000001}
+#echo $name
+aws ec2 start-instances --instance-ids $name
+echo "Timeout is for 20 seconds for Instance to start in AWS"
+sleep 20
+echo "Will poll EC2 instance for External IP address"
+sleep 1
+extIP=$(aws ec2 describe-instances --instance-ids $name --query 'Reservations[*].Instances[*].PublicIpAddress' --output text)
+echo "Found External IP Address of " $extIP " will try a establish a PCoIP connection.."
+sleep 1
+open pcoip://$extIP
+```
+
 ## Executing the Script as shortcut
+
 
 ## Revoke access to EC2 Instance
 
