@@ -49,7 +49,7 @@ Create an IAM policy for EC2 instance to read the secrets through the installati
     
 1. Select the **Create Policy** button
 
-    ![image](https://github.com/ChadSmithTeradici/DomainJoin-with-AWS-Secrets-for-Windows-EC2-instances/blob/main/images/Create_Policy_Button.jpg)
+    ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/Create_Policy_Button.jpeg)
     
 Select the **JSON** tab, it will open in separate web browser tab. Click on tab JSON and paste the following text. Also add in the **ARN** for the **EC2 Instances** captured in the previous step when creating or assigning the EC2 instances. 
 
@@ -87,6 +87,9 @@ Select the **JSON** tab, it will open in separate web browser tab. Click on tab 
     ]
 }
 ```
+1. Select Option tag then Next to continue
+
+1. Review the setting to the IAM role, Name the Policy then select the Create Policy button to finish creating the role.
 
 ## Creation of a IAM Role to access policy
 
