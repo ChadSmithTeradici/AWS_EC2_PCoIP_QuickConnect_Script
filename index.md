@@ -98,11 +98,13 @@ Within the IAM Management Console, select the Create **user** option.
 
 1. In the IAM User section select **Add User** button.
 
-1. In the User creation section, you will assign an **name** and check-box for **programmatic access** to resources.
+1. In the User creation section, you will assign an **name** and check-box for **programmatic access** to resources. Click **Next:Permissions**
 
     ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/Add_users.jpg)
     
-1. ds,/
+1. In the Set Permission section, you can decided on what security and access methodology your organization needs. Are you going to grant EC2 access on a per user basis,then **Attach existing policy directly** option is the best. If you are going to provide access to instances to a group of users, then **Add user to group** is advised. For this guide we will assoicating these instances directly a individual user.
+
+    ![image](
 
 
 ## Ensuring end-users have programmatic access to instances
