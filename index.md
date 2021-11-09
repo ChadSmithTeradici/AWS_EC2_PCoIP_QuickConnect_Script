@@ -98,7 +98,11 @@ Within the IAM Management Console, select the Create **user** option.
 
 1. In the IAM User section select **Add User** button.
 
-1. In the User creation section, you will select the AWS Service and EC2 under common use case.
+1. In the User creation section, you will assign an **name** and check-box for **programmatic access** to resources.
+
+    ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/Add_users.jpg)
+    
+1. ds,/
 
 
 ## Ensuring end-users have programmatic access to instances
