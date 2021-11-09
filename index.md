@@ -53,6 +53,8 @@ Create an IAM policy for EC2 instance to read the secrets through the installati
     
 Select the **JSON** tab, it will open in separate web browser tab. Click on tab JSON and paste the following text. Also add in the **ARN** for the **EC2 Instances** captured in the previous step when creating or assigning the EC2 instances. 
 
+**Note** The permission in this IAM policy are pretty broad for the EC2 instance and your organization may want to further lock-down this IAM policy further.
+
 ```
 {
     "Version": "2012-10-17",
@@ -91,7 +93,13 @@ Select the **JSON** tab, it will open in separate web browser tab. Click on tab 
 
 4. Review the setting to the IAM role, **Name** the Policy then select the **Create Policy button** to finish creating the role.
 
-## Creation of a IAM Role to access policy
+## Creation of a IAM User to access policys resources
+Within the IAM Management Console, select the Create **user** option.
+
+1. In the IAM User section select **Add User** button.
+
+1. In the User creation section, you will select the AWS Service and EC2 under common use case.
+
 
 ## Ensuring end-users have programmatic access to instances
 
