@@ -35,21 +35,16 @@ In this section, you set up some basic resources that the tutorial depends on.
 
 1. Instructions in this guide assume that you have a [AWS account](https://aws.amazon.com/free/) 
 
-1. Familiarize yourself with [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/)
+1. Familiarize yourself with [AWS CLI](https://aws.amazon.com/cli/
 
 1. Understand [IAM roles for EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) 
 
+## Creation of PCoIP EC2 Instances
+In this section, you procure will procure a EC2 instance through the EC2 Dashboard. This section isn't an exhaustive explanation instead rather focusing on EC2 power on script. For more details directions on the actual installation process there are two deployment methodologies [AWS marketplace](https://aws.amazon.com/marketplace/search/results?searchTerms=teradici) (or), refer to [EC2 Nvidia](https://github.com/ChadSmithTeradici/Teradici-PCoIP-Ultra-deployment-script-for-AWS-NVIDIA-EC2-instances) and [EC2 standard](https://github.com/ChadSmithTeradici/Teradici-PCoIP-Standard-deployment-script-for-AWS-EC2-instances) installation guides for customer wanting to bring in their existing Teradici registration codes to AWS.![image](https://user-images.githubusercontent.com/92746483/140969823-85c352f2-6c45-40ad-abd7-4e5a8806ef9a.png
 
-## Creation of AWS Secrets
-
-
-## Assign a IAM Policy for secrets
-
-
+## Configure a IAM access policy for EC2 instances
 
 ## Creation of a IAM Role to access policy
-
-
 
 ## Procure a EC2 Instance, assign role and use User Defined Script
 
