@@ -44,101 +44,48 @@ In this section, you procure will procure a EC2 instance through the EC2 Dashboa
 
 ## Configure a IAM access policy for EC2 instances
 
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:RunInstances",
+                "ec2:TerminateInstances",
+                "ec2:StartInstances",
+                "ec2:StopInstances"
+            ],
+            "Resource": [
+                "arn:aws:ec2:us-west-2:000000000000:instance/i-00000000000000001",
+                "arn:aws:ec2:us-west-1:455311239824:instance/i-00000000000000002"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:CreateTags",
+                "ec2:DescribeInstances",
+                "ec2:DescribeInstanceStatus",
+                "ec2:DescribeAddresses",
+                "ec2:AssociateAddress",
+                "ec2:DisassociateAddress",
+                "ec2:DescribeRegions",
+                "ec2:DescribeAvailabilityZones"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+'''
+
 ## Creation of a IAM Role to access policy
 
-## Procure a EC2 Instance, assign role and use User Defined Script
+## Ensuring end-users have programmatic access to instances
 
-In this section, you procure will procure a EC2 instance through the EC2 Dashboard. This section isn't an exhaustive explanation instead rather focusing on domain join script portion. For more details directions on the actual installation process, refer to [EC2 Nvidia](https://github.com/ChadSmithTeradici/Teradici-PCoIP-Ultra-deployment-script-for-AWS-NVIDIA-EC2-instances) and [EC2 standard](https://github.com/ChadSmithTeradici/Teradici-PCoIP-Standard-deployment-script-for-AWS-EC2-instances) installation guides.
+## Creation of power-on script per OS
 
-1.  Launch a EC2 instance, On the [EC2 Dashboard](https://console.aws.amazon.com/ec2), choose **Launch Instance*
-
-1. On the **Choose AMI** page, select the [Windows 2019 Base](https://aws.amazon.com/marketplace/pp/prodview-bd6o47htpbnoe?ref=cns_srchrow) AMI, then press **Select** button.
-
-1. On the **Choose Instance Type** page, chose a instance type and choose **Next: Configure Instance Details**.
-
-1. On the **Configure Instance Details** page, at a minimum fill in **Networking/Subnet/Auto-Assign Public-IP** based on desired Network topology. Take remaining configuration details based your requirements, until you reach the **IAM Roles**, then select the name of the IAM role previous created. 
-*(Example: Domain_Join_script)*
-
-    ![image](https://github.com/ChadSmithTeradici/DomainJoin-with-AWS-Secrets-for-Windows-EC2-instances/blob/main/images/IAM_Role_Domain_Join.jpg)
-
-    Scroll down to the **User data** field in the Advanced Details section and copy the script below and modify accordingly.
-
-   ![image](https://github.com/ChadSmithTeradici/Teradici-PCoIP-deployment_script-for-AWS-NVIDIA-Instances/blob/main/images/User_Data_Field.jpg)   
- 
-    ```
-     <powershell>
-    # Domain name and the tld. In this example would be teradici.dom
-    $domain_name = "teradici".ToUpper()
-    $domain_tld = "dom"
-    $secrets_manager_secret_id = "Windows/ServiceAccounts/DomainJoin"
-
-    # Make a request to the secret manager
-    $secret_manager = Get-SECSecretValue -SecretId $secrets_manager_secret_id
-
-    # Parse the response and convert the Secret String JSON into an object
-    $secret = $secret_manager.SecretString | ConvertFrom-Json
-
-    # Construct the domain credentials
-    $username = $domain_name.ToUpper() + "\" + $secret.ServiceAccount
-    $password = $secret.Password | ConvertTo-SecureString -AsPlainText -Force
-
-    # Set PS credentials
-    $credential = New-Object System.Management.Automation.PSCredential($username,$password)
-
-    # Get the Instance ID from the metadata store, we will use this as our computer name during domain registration.
-    $instanceID = [System.Net.Dns]::GetHostName()
-
-    # Perform the domain join
-    Add-Computer -DomainName "$domain_name.$domain_tld" -Credential $credential -Passthru -Verbose -Force -Restart
-    </powershell>
-    ```
-
-If you used the same naming conventations throughout this deployment guide, then the only section you have to personalize is the name of your domain and its       assoicated tld. If you deviated the name of the secrets names or any other variables, then you should make the changes above as well  
-    
-+ Change to your domain name *Example: teradici* 
-+ Chanage to your tld name *Examaple: dom*
-    
-    ```
-    $domain_name = "teradici".ToUpper() 
-    $domain_tld = "dom"                
-    ```
-  **Note, AD server( or) service is resolvable and accessable to the local subnet where instance resides, ensure all required ports are available.**
-  
-  For the remaining configuration details, make any selections you prefer. Then, choose **Next: Add Storage**.
-
-5. On the **Add Storage** page, choose the Size (GiB) cell and increase the volume based on your requirements. Then, choose **Next: Add Tags**.
-
-6. On the **Add Tags page**, optionally add any Key:Value tags to your instance. Then, choose **Next: Configure Security Group**.
-
-7. On the Configure Security Group page, make the following selections:
-
-    + For **Assign a security group**, choose **Create a new security group**.
-    + For **Security group name**, type a descriptive name, such as *pcoip ssh rdp*.
-    + For **Description**, optionally add a description.
-    + For **Type**, choose **SSH**
-    + For **Source**, choose **My IP**
-    + Select **Add rule**
-    + For **Type**, choose **Custom TCP Rule**
-    + For **Port Range** choose **HTTPS**
-    + For **Source**, choose **0.0.0.0/0**
-    + Select **Add rule**
-    + For **Type**, choose **Custom TCP Rule**
-    + For **Port Range** choose **4172**
-    + For **Source**, choose **0.0.0.0/0**
-    + Select **Add rule**
-    + For **Type**, choose **Custom UDP Rule**
-    + For **Port Range** choose **4172**
-    + For **Source**, choose **0.0.0.0/0**
-    + Select **Add rule**
-    + For **Type**, choose **Custom TCP Rule**
-    + For **Port Range** choose **3389**
-    + For **Source**, choose **My IP**
-    
-    Then, choose **Review** and **Launch**.
-    
-    **Note:** When the domain join script runs, it will AD join the instace using its instance ID as the AD computer name. Logging into the Active Directory Server     and looking for a correlation between instance ID and computer name ensures that the script has successfully run. 
-    
-## Revoke access to secrets after domain join
+## Revoke access to EC2 Instance
 
 It is stronly recommended to remove access to the AWS secrets after you have succefully leveraged the domain join script. A savy end-user could theoretically access the AWS secrets while logged into an instance that still has granted access to the IAM role and they are aware ofthe Secrets Name to call in a function.  
 
