@@ -35,7 +35,7 @@ In this section, you set up some basic resources that the tutorial depends on.
 
 1. Instructions in this guide assume that you have a [AWS account](https://aws.amazon.com/free/) 
 
-1. Familiarize yourself with [AWS CLI](https://aws.amazon.com/cli/
+1. Familiarize yourself with [AWS CLI](https://aws.amazon.com/cli/)
 
 1. Understand [IAM roles for EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) 
 
