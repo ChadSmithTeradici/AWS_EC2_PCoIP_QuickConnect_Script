@@ -10,15 +10,14 @@ Chad Smith | Technical Alliance Architect at Teradici | HP
 
 <p style="background-color:#CAFACA;"><i>Contributed by Teradici employees.</i></p>
 
-This script is designed to run on a freshly deployed Windows EC2 instance. Its function is to make a request to the AWS Secrets Manager to get the proper Active Directory Service Account credentials of a user that has delegated control to perform domain join operations. This negates the necessity of having hard coded username and password values sitting in the unattend.xml or the accompanying windows domain join powerShell script saved within the base AMI. 
-
+This script is designed to allow Teradici end users to power on their EC2 instances remotely without having to access the EC2 dashboard. It will also find the public or elastic IP of the instances and pass the connection info to a PCoIP connection string automatically. While larger Teradici deployments will benefit from Cloud Access Manager (CASM) when multiple instances reside in the same region. It is cost prohibited to run CASM connection gateways (CAC) when only a handful of user’s instances per region are needed and/or customer are interested in leveraging AWS local zones where the cost of perpetually running a CAC is cost prohibited!
 
 ## Objectives
 
-+ Create EC2 instances in AWS
++ Create EC2 instances in AWS.
 + Create an IAM role/policy to lock down access to instances
 + Apply Policy to user and programmatic access to resources 
-+ Download and configure AWS CLI
++ Download and configure AWS CLI 
 + Create script and set permission on client.
 
 
