@@ -24,7 +24,7 @@ This script is designed to allow Teradici end users to power on their EC2 instan
 ## Costs
 
 This tutorial uses billable components of AWS Cloud and assumes Teradici subscription, including the following:
-+   [AWS Nvidia EC2 Instance](https://aws.amazon.com/nvidia/), including vCPUs, memory, disk, and GPUs
++   [AWS EC2 Instance](https://aws.amazon.com/pm/ec2/, including vCPUs, memory, disk, and GPUs
 +   [Internet egress and transfer costs](https://aws.amazon.com/blogs/architecture/overview-of-data-transfer-costs-for-common-architectures/), for PCoIP and other applications communications.
 
 Use the [AWS pricing calculator](https://calculator.aws/#/) to generate a cost estimate based on your projected usage.
