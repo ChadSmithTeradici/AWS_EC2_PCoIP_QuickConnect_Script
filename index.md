@@ -87,9 +87,9 @@ Select the **JSON** tab, it will open in separate web browser tab. Click on tab 
     ]
 }
 ```
-1. Select Option tag then Next to continue
+3. Select Option tag then **Next** to continue
 
-1. Review the setting to the IAM role, Name the Policy then select the Create Policy button to finish creating the role.
+4. Review the setting to the IAM role, **Name** the Policy then select the **Create Policy button** to finish creating the role.
 
 ## Creation of a IAM Role to access policy
 
