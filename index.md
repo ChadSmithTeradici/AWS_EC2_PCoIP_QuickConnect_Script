@@ -77,7 +77,7 @@ In this section, you procure will procure a EC2 instance through the EC2 Dashboa
         }
     ]
 }
-'''
+```
 
 ## Creation of a IAM Role to access policy
 
