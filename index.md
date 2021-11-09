@@ -114,7 +114,11 @@ Within the IAM Management Console, select the Create **user** option.
 
     ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/Programmatic_access.jpg)
 
+## Installation of AWS CLI on client
+
 ## Creation of power-on script per OS
+
+## Executing the Script as shortcut
 
 ## Revoke access to EC2 Instance
 
