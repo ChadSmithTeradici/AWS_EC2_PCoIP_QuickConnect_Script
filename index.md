@@ -190,12 +190,12 @@ open pcoip://$extIP
 
 To avoid incurring charges to your AWS account for the resources used in this tutorial, you can simply delete the instance:
 
-In the [EC2 Dashboard](https://console.aws.amazon.com/ec20 go to the EC2 **Instance State** scroll to **Terminate**. 
+In the [EC2 Dashboard](https://console.aws.amazon.com/ec20) go to the EC2 **Instance State** scroll to **Terminate**. 
 While you don't get charged for [IAM resources](https://console.aws.amazon.com/iamv2/home#/home), you can remove user or remove/modify JSON Policy for user or group as well
 
 ## What's next
 
-Configure and optimize the PCoIP expereince on the EC2 Mac Instance.
-Learn more about Teradici products and offerings.
-Learn more about AWS EC2 Mac Instances
+Configure and optimize the PCoIP expereince on the EC2 Instances for [Windows](https://www.teradici.com/web-help/pcoip_agent/graphics_agent/windows/21.07/admin-guide/configuring/configuring/) or [Linux](https://www.teradici.com/web-help/pcoip_agent/graphics_agent/linux/21.07/admin-guide/configuring/configuring/).
+Learn more about [Teradici products and offerings](https://www.teradici.com/).
+Learn more about [AWS EC2 Instances](https://aws.amazon.com/ec2/instance-types/)
 
