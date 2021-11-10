@@ -195,7 +195,7 @@ While you don't get charged for [IAM resources](https://console.aws.amazon.com/i
 
 ## What's next
 
-Configure and optimize the PCoIP expereince on the EC2 Instances for [Windows](https://www.teradici.com/web-help/pcoip_agent/graphics_agent/windows/21.07/admin-guide/configuring/configuring/) or [Linux](https://www.teradici.com/web-help/pcoip_agent/graphics_agent/linux/21.07/admin-guide/configuring/configuring/).
-Learn more about [Teradici products and offerings](https://www.teradici.com/).
-Learn more about [AWS EC2 Instances](https://aws.amazon.com/ec2/instance-types/)
++ Configure and optimize the PCoIP expereince on the EC2 Instances for [Windows](https://www.teradici.com/web-help/pcoip_agent/graphics_agent/windows/21.07/admin-guide/configuring/configuring/) or [Linux](https://www.teradici.com/web-help/pcoip_agent/graphics_agent/linux/21.07/admin-guide/configuring/configuring/).
++ Learn more about [Teradici products and offerings](https://www.teradici.com/).
++ Learn more about [AWS EC2 Instances](https://aws.amazon.com/ec2/instance-types/)
 
