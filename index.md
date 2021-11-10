@@ -14,7 +14,7 @@ This script is designed to allow Teradici end users to power on their EC2 instan
 
 **AWS EC2 PCoIP Quick connect script workflow, components and dependencies.**
 
-   ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/AWS_EC2_PCoIP_QuickConnect_Script.jpg)
+   ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/AWS_EC2_PCoIP_QuickConnect.jpg)
 
 ## Objectives
 
