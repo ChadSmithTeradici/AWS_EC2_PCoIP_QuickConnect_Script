@@ -186,12 +186,14 @@ open pcoip://$extIP
 ```
 ## Executing the Script and create a shortcut
 
-##Clean up##
+## Clean up
+
 To avoid incurring charges to your AWS account for the resources used in this tutorial, you can simply delete the instance:
 
-In the EC2 Dashboard , go to the Mac Instance State scroll to Terminate
+In the [EC2 Dashboard](, go to the EC2 Instance State scroll to Terminate. Also, you can remove/modify JSON Policy for user or group in IAM
 
-##What's next ##
+## What's next
+
 Configure and optimize the PCoIP expereince on the EC2 Mac Instance.
 Learn more about Teradici products and offerings.
 Learn more about AWS EC2 Mac Instances
