@@ -129,7 +129,7 @@ Within the IAM Management Console, select the Create **user** option.
     Default output format [None]: json
    ```
    
-## Creation of power-on script per OS
+## Creation of power-on / connect script per OS
 
 After the installation of AWS CLI and the assigning of programmatic access has been assigned to the client. You can now copy either of the below scripts and change the permissions in order to execute.
 
