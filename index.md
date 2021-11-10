@@ -191,7 +191,7 @@ open pcoip://$extIP
 To avoid incurring charges to your AWS account for the resources used in this tutorial, you can simply delete the instance:
 
 + In the [EC2 Dashboard](https://console.aws.amazon.com/ec20) go to the EC2 **Instance State** scroll to **Terminate**. 
-+ While you don't get charged for [IAM resources](https://console.aws.amazon.com/iamv2/home#/home) you can remove user or remove/modify JSON Policy for users or group as well to tighten security. 
++ While you don't get charged for [IAM resources](https://console.aws.amazon.com/iamv2/home#/home) you can remove user or remove/modify JSON Policy for users or group as well to tighten security and clean-up policies.
 
 ## What's next
 
