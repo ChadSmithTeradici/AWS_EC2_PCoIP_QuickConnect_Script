@@ -53,7 +53,7 @@ Create an IAM policy for EC2 instance to read the secrets through the installati
     
 Select the **JSON** tab, it will open in separate web browser tab. Click on tab JSON and paste the following text. Also add in the **ARN** for the **EC2 Instances** captured in the previous step when creating or assigning the EC2 instances to the user.
 
-**Note** The permission in this IAM policy are pretty broad for the EC2 instance and your organization may want to further lock-down this IAM policy further.
+**Note:** The permission in this IAM policy are pretty broad for the EC2 instance and your organization may want to further lock-down this IAM policy further.
 
 ```
 {
