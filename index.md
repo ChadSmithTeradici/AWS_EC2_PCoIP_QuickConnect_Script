@@ -117,7 +117,9 @@ Within the IAM Management Console, select the Create **user** option.
 ## Installation of AWS CLI on client
 1. Installation of [AWS CLI](https://aws.amazon.com/cli/) client based on client OS
 1. [Configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) with provisioned Access key and Secret Key
-   In a terminal session (or) cmd window, type in *aws configure* and fill in the Access / Security keys provided when creating the user, as well as the *Default      regions name* and the *Default output format*
+   In a terminal session (or) cmd window, type in *aws configure* and fill in the **Access / Security keys** provided when creating auser, as well as the **Default      regions name** and the **Default output format**. 
+   
+   An example aws configuration:
   
    ```
     $ aws configure
