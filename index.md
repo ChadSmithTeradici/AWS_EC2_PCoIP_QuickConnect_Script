@@ -139,7 +139,7 @@ After the installation of AWS CLI and programmatic access has been assigned to t
 
 The script logic is to have a *instance-id* and its assoicated *region* pre set as a default, that can be 'clicked thru' to quickly establish a PCoIP connection. The script is designed to allow users to enter in a different instance-id and it's assoicated region if the user needs access a different instances. As long as the assoicated IAM policy has granted access to other instances. *(In the example policy earlier we had two instances 'us-west-2 and us-west-1' available to log into instances.)*
 
-For Windows clients, copy the script below into a text editor and modify the 2nd line *(replace i-00000000000001 with the instance-ID)* for the default instance ID as well as the region *(us-west-2)* that instance resides in for the 3rd line.  Save the file with a .ps1 extention and excute as a powershell script. 
+For Windows clients, copy the script below into a text editor and modify the 2nd line replaceing *i-00000000000001* with the instance-ID for the default instance ID as well as the region *(us-west-2)* that instance resides in for the 3rd line.  Save the file with a .ps1 extention and excute as a powershell script. 
 
 ```
 $cmd = 'powershell.exe'
@@ -161,13 +161,18 @@ sleep -s 1.5
 $Launch = "pcoip://$ExtIp"
 Start-Process $Launch
 ```
-jhjkhkhkhkj
+For Linux and Mac clients, copy the script below into a text editor and modify the line 2 for description and line 3, replacing *us-west-2* with the default Instances region. Also, modify line 4 for the instance-id description and line 5, replacing *I-0000000000000001* with the default Instance-ID.
+
+**REMEMBER** to keep the "-" in front for both instance-ID and region in lines 3 and 5, for bash script to work correctly. 
 
 ```
 #!/bin/bash
-read -p "Press enter to accept the default Instance id or enter new [i-0000000000000001]: " name
-name=${name:-i-0000000000000001}
-#echo $name
+read -p "Press enter to accept the default region or select different if desired instance is in different location [us-west-2]: " region
+region=${region:-us-west-2}
+read -p "Press enter to accept the default Instance id or enter new [I-0000000000000001]: " name
+name=${name:-I-0000000000000001}
+aws configure set region $region
+sleep 1
 aws ec2 start-instances --instance-ids $name
 echo "Timeout is for 20 seconds for Instance to start in AWS"
 sleep 20
@@ -178,7 +183,6 @@ echo "Found External IP Address of " $extIP " will try a establish a PCoIP conne
 sleep 1
 open pcoip://$extIP
 ```
-
 ## Executing the Script as shortcut
 
 
