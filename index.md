@@ -44,7 +44,7 @@ In this section, you set up some basic resources that the tutorial depends on.
 In this section, you procure will procure a EC2 instance through the EC2 Dashboard. This section isn't an exhaustive explanation instead rather focusing on EC2 power on script. For more details directions on the actual installation process there are two deployment methodologies; [AWS marketplace](https://aws.amazon.com/marketplace/search/results?searchTerms=teradici) (or), refer to [EC2 Nvidia](https://github.com/ChadSmithTeradici/Teradici-PCoIP-Ultra-deployment-script-for-AWS-NVIDIA-EC2-instances) and [EC2 standard](https://github.com/ChadSmithTeradici/Teradici-PCoIP-Standard-deployment-script-for-AWS-EC2-instances) installation guides for customer wanting to bring in their existing Teradici registration codes to AWS.
 
 ## Configure a IAM access policy for EC2 instances
-Create an IAM policy for EC2 instance to read the secrets through the installation script to join the domain.
+Create an [IAM policy](https://console.aws.amazon.com/iamv2/home#/policies) for EC2 instance to read the secrets through the installation script to join the domain.
 
 1. Go to IAM -> Policy -> Create Policy. 
     
@@ -95,7 +95,7 @@ Select the **JSON** tab, it will open in separate web browser tab. Click on tab 
 4. Review the setting to the IAM role, **Name** the Policy then select the **Create Policy button** to finish creating the role.
 
 ## Creation of a IAM User to access policys resources
-Within the IAM Management Console, select the Create **user** option.
+Within the [IAM Management Console](https://console.aws.amazon.com/iamv2/home#/home), select the Create **user** option.
 
 1. In the IAM User section select **Add User** button.
 
@@ -190,7 +190,8 @@ open pcoip://$extIP
 
 To avoid incurring charges to your AWS account for the resources used in this tutorial, you can simply delete the instance:
 
-In the [EC2 Dashboard](, go to the EC2 Instance State scroll to Terminate. Also, you can remove/modify JSON Policy for user or group in IAM
+In the [EC2 Dashboard](https://console.aws.amazon.com/ec20 go to the EC2 **Instance State** scroll to **Terminate**. 
+While you don't get charged for [IAM resources](https://console.aws.amazon.com/iamv2/home#/home), you can remove user or remove/modify JSON Policy for user or group as well
 
 ## What's next
 
