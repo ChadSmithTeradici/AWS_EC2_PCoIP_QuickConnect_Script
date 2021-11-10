@@ -119,7 +119,7 @@ Within the IAM Management Console, select the Create **user** option.
 1. [Configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) with provisioned Access key and Secret Key
    In a terminal session (or) cmd window, type in *aws configure* and fill in the **Access / Security keys** provided when creating auser, as well as the **Default      regions name** and the **Default output format**. 
    
-   An example aws configuration:
+   An example aws configure command:
   
    ```
     $ aws configure
@@ -128,12 +128,14 @@ Within the IAM Management Console, select the Create **user** option.
     Default region name [None]: us-west-2
     Default output format [None]: json
    ```
-1. Verify AWS configuration
-
+   
 ## Creation of power-on script per OS
 
-djsfjafd
+After the installation of AWS CLI and the assigning of programmatic access has been assigned to the client. You can now copy either of the below scripts and change the permissions in order to execute.
 
+The script logic is to have a *instance-id* and its assoicated *region* pre set as a default, that can be 'clicked thru' to quickly establish a PCoIP connection. The script is designed to allow users to enter in a different instance-id and it's assoicated region if the user wants access a different instances. As long as the assoicated IAM policy has granted access to other instances. In the example policy above, we had two instances (us-west-2 and us-west-1) available to log into instances.
+
+For 
 ```
 $cmd = 'powershell.exe'
 $defaultInstanceID = 'i-00000000000001'
