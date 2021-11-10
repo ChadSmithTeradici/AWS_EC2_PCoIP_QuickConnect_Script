@@ -115,8 +115,17 @@ Within the IAM Management Console, select the Create **user** option.
     ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/Programmatic_access.jpg)
 
 ## Installation of AWS CLI on client
-1. Installation of AWS CLI client
-1. Configure AWS CLI with provisioned Access key and Secret Key
+1. Installation of [AWS CLI](https://aws.amazon.com/cli/) client based on client OS
+1. [Configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) with provisioned Access key and Secret Key
+   In a terminal session (or) cmd window, type in *aws configure* and fill in the Access / Security keys provided when creating the user, as well as the *Default      regions name* and the *Default output format*
+  
+   '''
+    $ aws configure
+    AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
+    AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+    Default region name [None]: us-west-2
+    Default output format [None]: json
+    ```
 1. Verify AWS configuration
 
 ## Creation of power-on script per OS
