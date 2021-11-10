@@ -14,7 +14,7 @@ This script is designed to allow Teradici end users to power on their EC2 instan
 
 dsadjjd
 
-    ![image](
+    ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/AWSAWS_EC2_PCoIP_QuickConnect_Script.jpg)
 
 ## Objectives
 
