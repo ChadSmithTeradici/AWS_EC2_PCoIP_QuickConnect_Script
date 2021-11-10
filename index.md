@@ -18,6 +18,7 @@ This script is designed to allow Teradici end users to power on their EC2 instan
 + Create an IAM role/policy to lock down access to instances
 + Apply Policy to user and programmatic access to resources 
 + Download and configure AWS CLI 
++ Install PCoIP Client software
 + Create script and set permission on client.
 
 
@@ -183,7 +184,7 @@ echo "Found External IP Address of " $extIP " will try a establish a PCoIP conne
 sleep 1
 open pcoip://$extIP
 ```
-## Executing the Script as shortcut
+## Executing the Script and create a shortcut
 
 
 ## Revoke access to EC2 Instance
