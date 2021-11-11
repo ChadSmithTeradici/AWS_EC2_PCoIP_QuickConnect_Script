@@ -143,9 +143,9 @@ You are free to the install PCoIP client on a many devices as you wish.
 
 After the installation of AWS CLI and programmatic access has been assigned to the client. You can now copy either of the below scripts based on your OS and change the permissions in order to execute.
 
-The script logic is to have a *instance-id* and its assoicated *region* pre set as a default, that can be  quickly 'clicked thru' to establish a PCoIP connection. The script  also allows users to enter in a different instance-id and it's assoicated region if the user needs access a different instances. As long as the assoicated IAM policy has granted access to other instances. *(In the example policy created earlier we had two instances 'us-west-2 and us-west-1' available to log into instances.)*
+The script logic is to have an *instance-id* and its associated *region* pre-set as a default, that can be  quickly 'clicked thru' to establish a PCoIP connection. The script  also allows users to enter in a different instance-id and it's associated region if the user needs access another instance. As long as the associatedd IAM policy has granted access to other instances. *(In the example policy created earlier we had two instances 'us-west-2 and us-west-1' available to log into instances.)*
 
-For Windows clients, copy the script below into a text editor and modify the 2nd line replaceing *i-00000000000001* with the instance-ID for the default instance ID as well as the region *(us-west-2)* that instance resides in for the 3rd line.  Save the file with a .ps1 extention and excute as a powershell script. 
+For Windows clients, copy the script below into a text editor and modify the 2nd line replacing *i-00000000000001* with the instance-ID for the default instance ID as well as the region *(us-west-2)* that instance resides in for the 3rd line.  Save the file with a .ps1 extension and execute as a powershell script. 
 
 ```
 $cmd = 'powershell.exe'
