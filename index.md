@@ -62,7 +62,8 @@ Select the **JSON** tab, it will open in separate web browser tab. Click on tab 
 + All arn(s) begin with: **arn:aws:**
 + Next denote that its an EC2 Service by adding a **ec2:**
 + Add the region where the instances reside (example) **us-west-2:**
-+ Add your AWS account number, it
++ Add your AWS account number, (its a 12 digit number) **000000000000:**
++ Finally,  add the instance ID found in the EC2 console that begins with an 'i-' **i-00000000000000001**
 
 **Note:** The permission in this IAM policy are pretty broad for the EC2 instance and your organization may want to further lock-down this IAM policy further.
 
