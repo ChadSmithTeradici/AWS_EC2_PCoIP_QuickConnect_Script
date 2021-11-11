@@ -58,7 +58,7 @@ Create an [IAM policy](https://console.aws.amazon.com/iamv2/home#/policies) to p
     
 Select the **JSON** tab, it will open in separate web browser tab. Click on tab JSON and paste the following text. Also add in the **ARN** for the **EC2 Instances** captured in the previous step when creating or assigning the EC2 instances to the user.
 
-**Pro Tip** AWS EC2 Dashboard doesn't provide the ARN of each instances, instead you must write your own for each instance.
+**Pro Tip:** AWS EC2 Dashboard doesn't provide the ARN of each instances, instead you must write your own for each instance.
 + All arn(s) begin with: **arn:aws:**
 + Next denote that its an EC2 Service by adding a **ec2:**
 + Add the region where the instances reside (example) **us-west-2:**
