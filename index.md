@@ -196,6 +196,8 @@ echo "Found External IP Address of " $extIP " will try a establish a PCoIP conne
 sleep 1
 open pcoip://$extIP
 ```
+After the saving the file with a **.sh** extention, change the permission on the file with a **chmod +x** in order to execute the script.
+
 ## Executing the Script and create a shortcut
 
    ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/Script_Questions.jpg)
