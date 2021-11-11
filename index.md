@@ -198,7 +198,9 @@ open pcoip://$extIP
 ```
 ## Executing the Script and create a shortcut
 
-
+   ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/Script_Questions.jpg)
+   
+   
 ## Clean up
 
 To avoid incurring charges to your AWS account for the resources used in this tutorial, you can simply delete the instance:
