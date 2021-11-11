@@ -45,10 +45,10 @@ In this section, you set up some basic resources that the tutorial depends on.
 1. Understand [IAM roles for EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) 
 
 ## Creation of PCoIP EC2 Instances
-In this section, you procure will procure a EC2 instance through the EC2 Dashboard. This section isn't an exhaustive explanation instead rather focusing on EC2 power on script. For more details directions on the actual installation process there are two deployment methodologies; [AWS marketplace](https://aws.amazon.com/marketplace/search/results?searchTerms=teradici) (or), refer to [EC2 Nvidia](https://github.com/ChadSmithTeradici/Teradici-PCoIP-Ultra-deployment-script-for-AWS-NVIDIA-EC2-instances) and [EC2 standard](https://github.com/ChadSmithTeradici/Teradici-PCoIP-Standard-deployment-script-for-AWS-EC2-instances) installation guides for customer wanting to bring in their existing Teradici registration codes to AWS.
+In this section, you procure will procure a EC2 instance through the [EC2 Dashboard](https://console.aws.amazon.com/ec2). This section isn't an exhaustive explanation of the process, instead rather focusing on EC2 power-on/connection script. For more details directions on the actual installation process there are two deployment methodologies; [AWS marketplace](https://aws.amazon.com/marketplace/search/results?searchTerms=teradici) (or), refer to [EC2 Nvidia](https://github.com/ChadSmithTeradici/Teradici-PCoIP-Ultra-deployment-script-for-AWS-NVIDIA-EC2-instances) and [EC2 standard](https://github.com/ChadSmithTeradici/Teradici-PCoIP-Standard-deployment-script-for-AWS-EC2-instances) installation guides for customer wanting to bring in their existing Teradici registration codes to AWS.
 
 ## Configure a IAM access policy for EC2 instances
-Create an [IAM policy](https://console.aws.amazon.com/iamv2/home#/policies) for EC2 instance to read the secrets through the installation script to join the domain.
+Create an [IAM policy](https://console.aws.amazon.com/iamv2/home#/policies) to provide the proper permissions for the end-user to start and connect to defined instances.
 
 1. Go to IAM -> Policy -> Create Policy. 
     
@@ -143,7 +143,7 @@ You are free to the install PCoIP client on a many devices as you wish.
 
 After the installation of AWS CLI and programmatic access has been assigned to the client. You can now copy either of the below scripts based on your OS and change the permissions in order to execute.
 
-The script logic is to have a *instance-id* and its assoicated *region* pre set as a default, that can be 'clicked thru' to quickly establish a PCoIP connection. The script is designed to allow users to enter in a different instance-id and it's assoicated region if the user needs access a different instances. As long as the assoicated IAM policy has granted access to other instances. *(In the example policy earlier we had two instances 'us-west-2 and us-west-1' available to log into instances.)*
+The script logic is to have a *instance-id* and its assoicated *region* pre set as a default, that can be  quickly 'clicked thru' to establish a PCoIP connection. The script  also allows users to enter in a different instance-id and it's assoicated region if the user needs access a different instances. As long as the assoicated IAM policy has granted access to other instances. *(In the example policy created earlier we had two instances 'us-west-2 and us-west-1' available to log into instances.)*
 
 For Windows clients, copy the script below into a text editor and modify the 2nd line replaceing *i-00000000000001* with the instance-ID for the default instance ID as well as the region *(us-west-2)* that instance resides in for the 3rd line.  Save the file with a .ps1 extention and excute as a powershell script. 
 
@@ -167,9 +167,9 @@ sleep -s 1.5
 $Launch = "pcoip://$ExtIp"
 Start-Process $Launch
 ```
-For Linux and Mac clients, copy the script below into a text editor and modify the line 2 for description and line 3, replacing *us-west-2* with the default Instances region. Also, modify line 4 for the instance-id description and line 5, replacing *I-0000000000000001* with the default Instance-ID.
+For **Linux and Mac clients**, copy the script below into a text editor and modify the line 2 for description and line 3 default region, replacing *us-west-2* with the default Instances region if needed. Also, modify line 4 for the instance-id description and line 5, replacing *I-0000000000000001* with the default Instance-ID.
 
-**REMEMBER** to keep the "-" in front for both instance-ID and region in lines 3 and 5, for bash script to work correctly. 
+**REMEMBER** to keep the "-" in front for both **instance-ID** and **region** in lines 3 and 5, for bash script to work correctly. 
 
 ```
 #!/bin/bash
@@ -190,6 +190,7 @@ sleep 1
 open pcoip://$extIP
 ```
 ## Executing the Script and create a shortcut
+
 
 ## Clean up
 
