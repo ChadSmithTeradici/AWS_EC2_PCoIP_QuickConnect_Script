@@ -2,8 +2,8 @@
 title: Quick connect to instances in AWS with a PCoIP session
 description: Script that powers-up Instances, identified external IPs and establishes a PCoIP connection in a single step.
 author: chad-m-smith
-tags: AWS, EC2, Power Management
-date_published: 2021-11-05
+tags: AWS, EC2, PCoIP, Power Management
+date_published: 2021-11-11
 ---
 
 Chad Smith | Technical Alliance Architect at Teradici | HP
