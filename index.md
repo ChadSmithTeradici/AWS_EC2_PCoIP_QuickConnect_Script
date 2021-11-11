@@ -121,6 +121,7 @@ Within the [IAM Management Console](https://console.aws.amazon.com/iamv2/home#/h
 
 ## Installation of AWS CLI on client
 1. Installation of [AWS CLI](https://aws.amazon.com/cli/) client based on client OS
+   **Note** Quick Connect script relies on AWS CLI version 1.2.8 or higher on client system
 1. [Configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) with provisioned Access key and Secret Key
    In a terminal session (or) cmd window, type in *aws configure* and fill in the **Access / Security keys** provided when creating auser, as well as the **Default      regions name** and the **Default output format**. 
    
