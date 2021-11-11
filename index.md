@@ -200,7 +200,7 @@ open pcoip://$extIP
 
    ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/Script_Questions.jpg)
    
-   ![image](
+   ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/Instance_Status.jpg)
    
    
 ## Clean up
