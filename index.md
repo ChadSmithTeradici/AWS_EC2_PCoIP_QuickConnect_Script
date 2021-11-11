@@ -200,15 +200,15 @@ After the saving the file with a **.sh** extention, change the permission on the
 
 ## Executing the Script 
 
-When executing the script, a series of questions with defaults answers are presented to the end-user. By just pressing **ENTER** assumes the defualt instance-id and AWS region.
+1. When executing the script, a series of questions with defaults answers are presented to the end-user. By just pressing **ENTER** assumes the defualt instance-id and AWS region.
 
    ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/Script_Questions.jpg)
    
-The EC2 instance start command will output the status of the instance. The picture below shows the instance as **"pending"**, which means AWS is starting the instance. If the instance was already started will show **"running"**. The windows version of the script has the option to interrupt the script timeout of 20 seconds and go directly to the PCoIP connection. Mac and Linux doesn't provide a break and have to wait the entire 20 seconds before connecting regardless.
+1. The EC2 instance start command will output the status of the instance. The picture below shows the instance as **"pending"**, which means AWS is starting the instance. If the instance was already started will show **"running"**. The windows version of the script has the option to interrupt the script timeout of 20 seconds and go directly to the PCoIP connection. Mac and Linux doesn't provide a break and have to wait the entire 20 seconds before connecting regardless.
    
    ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/Instance_Status.jpg)
    
-The script will poll for the external IP address (either ephemeral or elastic) of the instance and inject the IP address into a PCoIP URI string to connect to the instance. The assumption is that PCoIP client is already install on the client and is atleast 20.01 or greater for URIs support.
+1. The script will poll for the external IP address (either ephemeral or elastic) of the instance and inject the IP address into a PCoIP URI string to connect to the instance. The assumption is that PCoIP client is already install on the client and is atleast 20.01 or greater for URIs support.
    
    ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/PCoIP_Login_Screen.jpg)   
    
