@@ -200,7 +200,11 @@ After the saving the file with a **.sh** extention, change the permission on the
 
 ## Executing the Script and create a shortcut
 
+When executing the script, a series of questions with defaults answers are presented to the end-user. By just pressing **ENTER** assumes the defualts.
+
    ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/Script_Questions.jpg)
+   
+The EC2 instance start    
    
    ![image](https://github.com/ChadSmithTeradici/AWS_EC2_PCoIP_QuickConnect_Script/blob/main/images/Instance_Status.jpg)
    
